@@ -1,0 +1,127 @@
+/* General Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    color: #3d3d3dda;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Clock Container Style */
+.container {
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 2em;
+}
+
+.clock {
+    position: relative;
+    border-radius: 50%;
+    width: 90vw;
+    max-width: 400px;
+    height: 90vw;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.5em solid #0000009d;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.clock span {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--j)));
+    inset: 20px;
+    text-align: center;
+}
+
+.clock span b {
+    transform: rotate(calc(-30deg * var(--j)));
+    display: inline-block;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: #000000;
+    z-index: 1;
+}   
+
+/* Clock hands style */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    width: 2px;
+    background-color: var(--clr);
+    transform-origin: bottom;
+    border-radius: 4px;
+}
+
+#hour {
+    --clr: #1212dc;
+    width: 8px;
+    height: 20%;
+}
+
+#minute {
+    --clr: #1212dc;
+    width: 6px;
+    height: 33%;
+}
+
+#second {
+    --clr: #ec660d;
+    width: 3px;
+    height: 35%;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 1em;
+    }
+
+    .clock {
+        width: 80vw;
+        max-width: 300px;
+        height: 80vw;
+        max-height: 300px;
+        border: 0.4em solid #0000009d;
+    }
+
+    .clock span b {
+        font-size: 25px;
+    }
+
+    .hand {
+        width: 2px;
+    }
+
+    #hour {
+        width: 4px;
+        height: 20%;
+    }
+
+    #minute {
+        width: 3px;
+        height: 28%;
+    }
+
+    #second {
+        width: 1px;
+        height: 33%;
+    }
+}
